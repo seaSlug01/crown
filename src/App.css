@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Open Sans Condensed', sans-serif;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(17, 17, 17);
+}
+
+.main-container {
+  padding: 0 60px;
+  margin-top: 20vh;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}

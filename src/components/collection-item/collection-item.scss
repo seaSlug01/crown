@@ -1,0 +1,90 @@
+.collection-item {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.185);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+
+    .image {
+      filter: blur(2px);
+    }
+
+    .custom-button {
+      opacity: 1;
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+    transition: all 0.4s ease-out;
+  }
+
+  .custom-button {
+    width: 55%;
+    position: absolute;
+    top: 55%;
+    transition: background-color 0.4s ease-in, opacity 0.4s ease-in;
+    opacity: 1;
+
+    &:hover {
+      .icon {
+        width: 25px;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .icon {
+      transition: width 0.5s ease, visibility 0.5s ease, opacity 0.5s ease;
+      width: 0px;
+      visibility: hidden;
+      opacity: 0;
+      font-size: 0.98rem;
+      padding-top: 1px;
+    }
+  }
+
+  .collection-footer {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    align-items: center;
+    font-size: 18px;
+
+    &:hover {
+      .name {
+        text-decoration: underline;
+      }
+    }
+
+    .name,
+    .price {
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+
+    .price {
+      width: 10%;
+    }
+  }
+}
