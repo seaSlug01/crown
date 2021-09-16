@@ -50,9 +50,9 @@ const CartDropdown = ({
       }}
     >
       {cartItems.length ? (
-        <div className='cart-items'>
-          <span className='cart-header'>SHOPPING CART</span>
+        <div className='cart-items reverse'>
           <div className='cart-items-cont'>
+            <span className='cart-header'>SHOPPING CART</span>
             {cartItems.map((cartItem, index, array) => (
               <CartItem
                 key={cartItem.id}
@@ -72,7 +72,7 @@ const CartDropdown = ({
           <span className='empty-message'>Your cart is empty.</span>
         </div>
       )}
-      {cartItems.length ? (
+      {!!cartItems.length && (
         <div className='button-cont'>
           <CustomButton
             onClick={() => {
@@ -83,8 +83,6 @@ const CartDropdown = ({
             PROCEED TO CHECKOUT
           </CustomButton>
         </div>
-      ) : (
-        ''
       )}
     </motion.div>
   );
