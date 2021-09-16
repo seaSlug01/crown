@@ -52,17 +52,19 @@ const CartDropdown = ({
       {cartItems.length ? (
         <div className='cart-items'>
           <span className='cart-header'>SHOPPING CART</span>
-          {cartItems.map((cartItem, index, array) => (
-            <CartItem
-              key={cartItem.id}
-              item={cartItem}
-              additionalClass={
-                array.length === 3 && index === 2
-                  ? 'no-border-and-padding-bottom'
-                  : ''
-              }
-            />
-          ))}
+          <div className='cart-items-cont'>
+            {cartItems.map((cartItem, index, array) => (
+              <CartItem
+                key={cartItem.id}
+                item={cartItem}
+                additionalClass={
+                  array.length === 3 && index === 2
+                    ? 'no-border-and-padding-bottom'
+                    : ''
+                }
+              />
+            ))}
+          </div>
         </div>
       ) : (
         <div className='cart-items'>

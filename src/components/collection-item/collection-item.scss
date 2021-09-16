@@ -1,12 +1,12 @@
 .collection-item {
-  width: 30%;
+  width: 32%;
   display: flex;
   flex-direction: column;
   height: 400px;
   align-items: center;
   position: relative;
   cursor: pointer;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.185);
+  box-shadow: 0 10px 40px rgb(206, 206, 206);
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 4rem;

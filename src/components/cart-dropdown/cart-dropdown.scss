@@ -4,22 +4,22 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-
   border-left: thin solid rgb(225, 233, 255);
   background-color: white;
   top: 0;
   right: 0;
   z-index: 5;
 
+  .empty-message {
+    margin-top: 2rem;
+  }
+
   .cart-header {
     margin-top: 3rem;
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     font-weight: bold;
-  }
-
-  .empty-message {
-    margin-top: 2rem;
+    transform: rotateY(180deg);
   }
 
   .cart-items {
@@ -28,6 +28,11 @@
     max-height: 90vh;
     overflow-y: auto;
     padding: 20px;
+    transform: rotateY(180deg);
+
+    .cart-items-cont {
+      transform: rotateY(180deg);
+    }
   }
 
   .button-cont {
