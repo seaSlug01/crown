@@ -1,13 +1,10 @@
 .sign-in {
-  display: flex;
-  flex-direction: column;
+  padding: 2rem 10rem;
+  width: 50%;
+  min-width: 892px;
 
   .form-group {
-    margin-top: 2rem;
-  }
-
-  .title {
-    margin: 10px 0;
+    margin: 3rem 0;
   }
 
   .buttons {

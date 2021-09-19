@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import Input from '../input/Input';
 import CustomButton from '../custom-button/CustomButton';
 
@@ -42,13 +42,13 @@ function SignIn() {
 
   return (
     <div className='sign-in'>
-      <h2>I already have an account.</h2>
-      <span>Sign in with your email and password</span>
+      <h1 className='title'>Sign In</h1>
+      <span className='subtitle'>Sign in with your email and password</span>
 
       <form onSubmit={e => handleSubmit(e)}>
         <Input
           handleChange={handleChange}
-          class='form-group'
+          classes='form-group'
           name='email'
           type='email'
           value={email}
@@ -57,7 +57,7 @@ function SignIn() {
         />
         <Input
           handleChange={handleChange}
-          class='form-group'
+          classes='form-group'
           type='password'
           name='password'
           value={password}
@@ -66,10 +66,18 @@ function SignIn() {
         />
 
         <div className='buttons'>
-          <CustomButton type='submit' value='Submit Form'>
+          <CustomButton
+            type='submit'
+            value='Submit Form'
+            className='sign-buttons'
+          >
             Sign In
           </CustomButton>
-          <CustomButton onClick={SignInWithGoogle} isGoogleSignIn={true}>
+          <CustomButton
+            onClick={SignInWithGoogle}
+            isGoogleSignIn={true}
+            className='sign-buttons'
+          >
             <img src={googleLogo} alt='logo' />
             Sign In With <span className='blue'>G</span>
             <span className='red'>o</span>
@@ -80,6 +88,10 @@ function SignIn() {
           </CustomButton>
         </div>
       </form>
+
+      <Link to='/account/signup' className='sign-in-out-link'>
+        Dont have an account? Create one here.
+      </Link>
     </div>
   );
 }

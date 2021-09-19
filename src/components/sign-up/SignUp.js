@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Input from '../input/Input';
+import CustomButton from '../custom-button/CustomButton';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
-import FormInput from "../form-input/FormInput";
-import CustomButton from "../custom-button/CustomButton";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
-
+import './sign-up.scss';
 function SignUp() {
   const [signUpDetails, setSignUpDetails] = useState({
-    displayName: "",
-    email: "",
-    password: "",
-    confirmPassword: ""
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   });
 
   const { displayName, email, password, confirmPassword } = signUpDetails;
@@ -18,7 +19,7 @@ function SignUp() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords dont match");
+      alert('Passwords dont match');
       return;
     }
 
@@ -33,10 +34,10 @@ function SignUp() {
       await createUserProfileDocument(user, { displayName });
 
       setSignUpDetails({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
       });
     } catch (err) {
       console.error(err.message);
@@ -50,46 +51,52 @@ function SignUp() {
   };
 
   return (
-    <div className="sign-up">
-      <h2 className="title">I do not have an account.</h2>
-      <span>Sign up with your email and password</span>
-      <form className="sign-up-form" onSubmit={handleSubmit}>
-        <FormInput
-          type="text"
-          name="displayName"
+    <div className='sign-up'>
+      <h1 className='title'>Create Account</h1>
+      <span className='subtitle'>Sign up with your email and password</span>
+      <form className='sign-up-form' onSubmit={handleSubmit}>
+        <Input
+          classes='form-group'
+          name='displayName'
           value={displayName}
-          onChange={handleChange}
-          label="Display Name"
-          autoComplete="off"
+          handleChange={handleChange}
+          label='Display Name'
+          autoComplete='off'
           required
         />
 
-        <FormInput
-          type="email"
-          name="email"
+        <Input
+          classes='form-group'
+          type='email'
+          name='email'
           value={email}
-          onChange={handleChange}
-          label="Email"
+          handleChange={handleChange}
+          label='Email'
         />
 
-        <FormInput
-          type="password"
-          name="password"
+        <Input
+          classes='form-group'
+          type='password'
+          name='password'
           value={password}
-          onChange={handleChange}
-          label="Password"
+          handleChange={handleChange}
+          label='Password'
         />
 
-        <FormInput
-          type="password"
-          name="confirmPassword"
+        <Input
+          classes='form-group'
+          type='password'
+          name='confirmPassword'
           value={confirmPassword}
-          onChange={handleChange}
-          label="Confirm Password"
+          handleChange={handleChange}
+          label='Confirm Password'
         />
 
-        <CustomButton type="submit">SIGN UP</CustomButton>
+        <CustomButton type='submit'>SIGN UP</CustomButton>
       </form>
+      <Link to='/account/signin' className='sign-in-out-link'>
+        Already have an account? Sign In here.
+      </Link>
     </div>
   );
 }

@@ -26,10 +26,10 @@ const Input = React.forwardRef(
     const [inputFocus, setInputFocus] = useState(false);
 
     return (
-      <FormGroup layout width={width}>
+      <FormGroup layout width={width} className={`${classes}`}>
         <InputGroup layout fontSize={fontSize}>
           <input
-            className={`${message && message.type} ${classes}`}
+            className={`${message && message.type}`}
             type={type}
             onChange={e => {
               handleChange(e);

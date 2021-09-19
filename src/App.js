@@ -58,8 +58,7 @@ function App(props) {
               <Route path='/shop' component={ShopPage} />
               <Route exact path='/checkout' component={CheckoutPage} />
               <Route
-                exact
-                path='/signin'
+                path='/account/:id'
                 render={() =>
                   props.currentUser ? (
                     <Redirect to='/' />

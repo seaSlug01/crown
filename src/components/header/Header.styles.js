@@ -1,4 +1,7 @@
-.header {
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const HeaderContainer = styled.div`
   min-height: 117px;
   height: 150px;
   width: 100%;
@@ -58,48 +61,49 @@
       box-shadow: 0 0 10px rgba(0, 94, 182, 0.15);
     }
   }
+`;
 
-  .logo-container {
-    height: 50%;
-    position: relative;
+export const LogoContainer = styled(Link)`
+  height: 50%;
+  position: relative;
 
-    .logo-img-cont {
-      position: absolute;
-      top: -21px;
-      left: 15px;
-      svg {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    .logo-title {
-      color: black;
-      font-size: 6rem;
-      font-family: 'Kameron', serif;
+  .logo-img-cont {
+    position: absolute;
+    top: -21px;
+    left: 15px;
+    svg {
+      width: 40px;
+      height: 40px;
     }
   }
 
-  .nav {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    .options {
-      display: flex;
-      align-items: center;
-      align-self: flex-start;
-
-      .option {
-        padding: 10px 15px;
-        font-weight: 600;
-
-        cursor: pointer;
-
-        &.sign-in-out {
-          color: #ff39f0;
-        }
-      }
-    }
+  .logo-title {
+    color: black;
+    font-size: 6rem;
+    font-family: 'Kameron', serif;
   }
-}
+`;
+
+export const Navigation = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const OptionsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  padding-top: 1rem;
+`;
+
+export const Option = styled(Link)`
+  padding: 10px 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &.sign-in-out {
+    color: #ff39f0;
+  }
+`;

@@ -57,10 +57,7 @@ const CheckoutPage = ({ cartItems, total }) => {
         </div>
 
         {cartItems.length > 0 && (
-          <CustomButton
-            className='custom-button pay-now'
-            onClick={() => setStripeModal(true)}
-          >
+          <CustomButton payButton onClick={() => setStripeModal(true)}>
             Pay Now
           </CustomButton>
         )}

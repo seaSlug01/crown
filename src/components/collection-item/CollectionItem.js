@@ -26,7 +26,11 @@ const CollectionItem = ({ item, addItem }) => {
         <span className='name'>{name}</span>
         <span className='price'>{price}&euro;</span>
       </div>
-      <CustomButton onClick={() => addItem(item)} gradient>
+      <CustomButton
+        onClick={() => addItem(item)}
+        gradient
+        className='custom-button'
+      >
         <div className='text'>Add To Cart </div>
         <div className='icon'>
           <FiShoppingCart />

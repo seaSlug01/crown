@@ -1,13 +1,18 @@
 import React, { useEffect, useContext } from 'react';
 
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
 
-import './header.scss';
+import {
+  HeaderContainer,
+  LogoContainer,
+  Navigation,
+  OptionsContainer,
+  Option
+} from './Header.styles';
 
 // DOM Contexts
 import { ScrollYContext } from '../../contexts/ScrollY_Context';
@@ -28,34 +33,38 @@ function Header({ currentUser, hidden }) {
   }, [currentUser]);
 
   return (
-    <div className={`header ${scrollY > 100 ? 'white' : ''}`}>
-      <Link to='/' className='logo-container'>
+    <HeaderContainer className={`${scrollY > 100 ? 'white' : ''}`}>
+      <LogoContainer to='/'>
         <div className='logo-img-cont'>
           <Logo className='logo' />
         </div>
         <div className='logo-title'>CROWN</div>
-      </Link>
-      <nav className='nav'>
-        <div className='options'>
-          <Link to='/shop' className='option'>
-            SHOP
-          </Link>
-
+      </LogoContainer>
+      <Navigation>
+        <OptionsContainer>
+          <Option to='/shop'>SHOP</Option>
+          <Option to='/contact'>CONTACT</Option>
           {currentUser ? (
-            <div className='option sign-in-out' onClick={() => auth.signOut()}>
+            <Option
+              as='div'
+              className='sign-in-out'
+              onClick={() => auth.signOut()}
+            >
               SIGN OUT
-            </div>
+            </Option>
           ) : (
-            <Link className='option sign-in-out' to='/signin'>
+            <Option className='sign-in-out' to='/account/signin'>
               SIGN IN
-            </Link>
+            </Option>
           )}
 
-          <CartIcon />
-        </div>
-      </nav>
+          <Option as='div'>
+            <CartIcon />
+          </Option>
+        </OptionsContainer>
+      </Navigation>
       <AnimatePresence>{hidden ? null : <CartDropdown />}</AnimatePresence>
-    </div>
+    </HeaderContainer>
   );
 }
 

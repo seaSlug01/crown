@@ -120,6 +120,7 @@ const Title = styled.h1`
   font-size: 3.3vw;
   display: inline-block;
   margin-right: 1rem;
+  white-space: nowrap;
 
   &:hover + ${SubTitleContainer} {
     ${SubTitle} {
