@@ -1,5 +1,45 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+export const Navigation = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const OptionsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  padding-top: 1rem;
+`;
+
+export const Option = styled(NavLink)`
+  padding: 10px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-left: 1rem;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+
+  &.active,
+  &:hover {
+    &:not(.cart-icon-option) {
+      background: rgba(56, 56, 56, 0.1);
+      box-shadow: inset 0 0 3px #dfdfdf;
+    }
+  }
+
+  &.sign-in-out {
+    color: #6262ff;
+    background: #e4ebff;
+    box-shadow: inset 0 0 3px #dfdfdf;
+    &:hover {
+      background: #d8e1fc;
+    }
+  }
+`;
 
 export const HeaderContainer = styled.div`
   min-height: 117px;
@@ -33,7 +73,7 @@ export const HeaderContainer = styled.div`
     top: 0;
     left: 0;
     height: 0%;
-    background: rgba(255, 255, 255, 0.835);
+    background: rgba(255, 255, 255, 0.9);
     width: 100%;
     transition: height 0.5s ease, box-shadow 0.2s 0.4s ease,
       background 0.3s ease;
@@ -63,7 +103,7 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-export const LogoContainer = styled(Link)`
+export const LogoContainer = styled(NavLink)`
   height: 50%;
   position: relative;
 
@@ -81,29 +121,5 @@ export const LogoContainer = styled(Link)`
     color: black;
     font-size: 6rem;
     font-family: 'Kameron', serif;
-  }
-`;
-
-export const Navigation = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-export const OptionsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  align-self: flex-start;
-  padding-top: 1rem;
-`;
-
-export const Option = styled(Link)`
-  padding: 10px 15px;
-  font-weight: 600;
-  cursor: pointer;
-
-  &.sign-in-out {
-    color: #ff39f0;
   }
 `;

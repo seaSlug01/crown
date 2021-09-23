@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
-import { auth } from '../../firebase/firebase.utils';
 
 import {
   HeaderContainer,
@@ -24,8 +23,10 @@ import CartDropdown from '../cart-dropdown/CartDropdown';
 // Selectors
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { signOutStart } from '../../redux/user/user.actions';
+
 import { AnimatePresence } from 'framer-motion';
-function Header({ currentUser, hidden }) {
+function Header({ currentUser, hidden, signOutStart }) {
   const scrollY = useContext(ScrollYContext);
 
   useEffect(() => {
@@ -45,11 +46,7 @@ function Header({ currentUser, hidden }) {
           <Option to='/shop'>SHOP</Option>
           <Option to='/contact'>CONTACT</Option>
           {currentUser ? (
-            <Option
-              as='div'
-              className='sign-in-out'
-              onClick={() => auth.signOut()}
-            >
+            <Option as='div' className='sign-in-out' onClick={signOutStart}>
               SIGN OUT
             </Option>
           ) : (
@@ -58,7 +55,7 @@ function Header({ currentUser, hidden }) {
             </Option>
           )}
 
-          <Option as='div'>
+          <Option as='div' className='cart-icon-option'>
             <CartIcon />
           </Option>
         </OptionsContainer>
@@ -73,4 +70,8 @@ const mapStateToProps = createStructuredSelector({
   hidden: selectCartHidden
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  signOutStart: () => dispatch(signOutStart())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
